@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet adoption dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h2>pet Adoption website</h2>
+    <a href="login.html">logout</a>
+</header>
+<div class="content">
+    
+<h1>welcome user!</h1>
+    <button onclick="showAdopt()">Adopt-Section</button>
+<br>
+
+<button onclick="showGive()">Give-Section</button>
+<br>
+
+     <!--adopt section-->
+     <div id="adopt-section">
+     <input type="text" id="search" placeHolder="searchPet" onkeyup="searchPet()">
+     <div class="pet-grid" id="petList"></div>
+    </div>
+<!--Give-Section-->
+<div id="give-section" style="
+display:none;">
+<h3>give pet for Adoption</h3>
+<input id="petName" placeHolder="Pet-Name">
+<input id="petBreed" placeHolder="Breed">
+<input id="petAge" placeHolder="Age">
+<button onclick="submitPet()">Submit</button>
+</div>
+</div>
+     <script src="script.js"></script>
+</body>
+</html> 
