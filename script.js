@@ -1,4 +1,4 @@
-alert("hello");
+
 let pets=[
      {name:"Tommy", 
     breed:"labrador",
@@ -36,7 +36,7 @@ function showPets(petList){
         <h4> ${pet.name}</h4>
         <p>Breed: ${pet.breed}</p>
  <p>description: ${pet.description}</p>
-<h3>Image: ${pet.image}</h3>
+<image src: "${pet.image}" style="width:100%; height:150px;">
 <p>Gender: ${pet.gender}</p>
 <p>Health: ${pet.health}</p>
         <button onclick="adoptPet('${pet.name}')">Adopt me </button></div>`;
