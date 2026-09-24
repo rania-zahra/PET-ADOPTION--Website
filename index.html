@@ -31,10 +31,12 @@ display:none;">
 <h3>give pet for Adoption</h3>
 <input id="petName" placeHolder="Pet-Name">
 <input id="petBreed" placeHolder="Breed">
-<input id="petAge" placeHolder="Age">
-<input id="petDiscription" placeHolder="petDiscription">
-<input id="petImage" placeHolder="petImage">
+
+<input type="number" id="petAge" placeHolder="Age" min="0" max="5">
+<input id="petDescription" placeHolder="petDescription">
+<input id="petImage" placeHolder="petImage" accept="image/*">
 <input id="petGender" placeHolder="petGender">
+<input id="petHealth" placeholder="Health">
 <button onclick="submitPet()">Submit</button>
 </div>
 </div>
@@ -42,7 +44,7 @@ display:none;">
 </body>
 
     
-</head>
+
 
 
 

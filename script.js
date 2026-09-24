@@ -4,7 +4,7 @@ let pets=[
     breed:"labrador",
      age:"2 years", 
      description:"friendly and active dog",
-image:"tommy.jpg",
+image:"./image/tommy.jpg",
 gender:"male",
 health:"healthy"
      },
@@ -12,15 +12,15 @@ health:"healthy"
 breed:"Perisan cat", 
  age:"1 years",
  description:"friendly and naugthy",
-image:"luna.jpg",
+image:"./image/luna.jpg",
 gender:"female",
 health:"healthy"
 },
 {name:"Jenny",
  breed:"German Shepherd",
- age:"2 years",
+ age:"1 years",
  description:"decent and cute",
-image:"jenny.jpg",
+image:"./image/jenny.jpg",
 gender:"female",
 health:"healthy"
 
@@ -35,8 +35,9 @@ function showPets(petList){
         html += `<div class="pet-card">
         <h4> ${pet.name}</h4>
         <p>Breed: ${pet.breed}</p>
+        <p>Age: ${pet.age}</p>
  <p>description: ${pet.description}</p>
-<image src: "${pet.image}" style="width:100%; height:150px;">
+<img src= "${pet.image}" style="width:100%; height:150px;">
 <p>Gender: ${pet.gender}</p>
 <p>Health: ${pet.health}</p>
         <button onclick="adoptPet('${pet.name}')">Adopt me </button></div>`;
@@ -71,21 +72,55 @@ function submitPet() {
     let breed = document.getElementById("petBreed").value;
     let age = document.getElementById("petAge").value;
 let description = document.getElementById("petDescription").value;
-let image = document.getElementById("petImage").value;
+let image = document.getElementById("petImage").files[0];
 let gender = document.getElementById("petGender").value;
 let health = document.getElementById("petHealth").value;
-    if (name === "" || breed === "" ||  age === "" || description === "" || image === "" || gender === "" || health === "" ) {
+    if (name === "" || breed === "" ||  age === "" || description === "" ||  gender === "" || health === "" ) {
         alert("Please fill all fields!");
         return;
     }
-
+    if (!imagefile) {
+        alert("Please select an image from your gallery.");
+        return;
+    }
+    let ageNumber = Number(age);
+    if (isNaN(ageNumber) || ageNumber < 0 || ageNumber > 5) {
+        alert("Please enter a valid age between 0 and 5.");
+        return;
+    }
+    let reader = new FileReader();
+    reader.onload = function(e) {
+        let imageDataUrl = e.target.result;
     alert(
-        "Pet submitted successfully!\n" +
-        "Name: " + name + "\n" +
-        "Breed: " + breed + "\n" +
-        "Age: " + age + "\n" +
-     "Description:" + description +"\n"+
-     "Image: " + image + "\n" +
+    "Pet submitted successfully!\n" +
+    "Name: " + name + "\n" +
+    "Breed: " + breed + "\n" +
+    "Age: " + age + "\n" +
+ "Description:" + description +"\n"+
+     "Image: " + imageDataUrl + "\n" +
      "Gender: " + gender + "\n" +
      "Health: " + health 
     );}
+let newPet={
+    name: name,
+    breed: breed,
+    age: age,
+    description: description,
+    image: image,
+    gender: gender,
+    health: health
+}
+pets.push(newPet);
+document.getElementById("petName").value = "";
+document.getElementById("petBreed").value = "";
+document.getElementById("petAge").value = "";
+document.getElementById("petDescription").value = "";
+document.getElementById("petImage").value = "";
+document.getElementById("petGender").value = "";
+document.getElementById("petHealth").value = "";
+
+document.getElementById("adopt-section").style.display = "block";
+document.getElementById("give-section").style.display = "none";
+}
+showPets(pets);
+reader.readAsDataURL(image);
