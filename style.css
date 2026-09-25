@@ -1467,3 +1467,19 @@ input:focus-visible {
         height: 210px !important;
     }
 }
+#search,
+#breedFilter,
+#genderFilter,
+#healthFilter {
+    width: 180px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+#petList {
+    margin-top: 25px;
+}

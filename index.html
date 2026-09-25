@@ -16,29 +16,50 @@
 <h1>welcome user!</h1>
     <button onclick="showAdopt()">Adopt-Section</button>
 <br>
-
 <button onclick="showGive()">Give-Section</button>
 <br>
+<button onclick="showFavorites()">Show Favorites</button>
+<br>
+     <!-- Adopt Section -->
+<div id="adopt-section">
 
-     <!--adopt section-->
-     <div id="adopt-section">
-     <input type="text" id="search" placeHolder="searchPet" onkeyup="searchPet()">
-     <div class="pet-grid" id="petList"></div>
-    </div>
+    <input type="text" id="search" placeholder="Search Pet" onkeyup="applyFilters()">
+
+    <select id="breedFilter" onchange="applyFilters()">
+        <option value="">All Breeds</option>
+        <option value="labrador">Labrador</option>
+        <option value="persian cat">Persian Cat</option>
+        <option value="british shorthair">British Shorthair</option>
+    </select>
+
+    <select id="genderFilter" onchange="applyFilters()">
+        <option value="">All Genders</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+
+    <select id="healthFilter" onchange="applyFilters()">
+        <option value="">All Health</option>
+        <option value="healthy">Healthy</option>
+        <option value="unhealthy">Unhealthy</option>
+    </select>
+
+    <div class="pet-grid" id="petList"></div>
+
+</div>
 <!--Give-Section-->
 <div id="give-section" style="
 display:none;">
 <h3>give pet for Adoption</h3>
 <input id="petName" placeHolder="Pet-Name">
 <input id="petBreed" placeHolder="Breed">
-
+<label for="petImage" id="imageLabel" style="border: 1px dashed #999; padding: 10px; display: block;text-align:center;cursor:pointer; border-radius:8px;">Select Image</label>
+<input type="file" id="petImage"  accept="image/*" hidden>
 <input type="number" id="petAge" placeHolder="Age" min="0" max="5">
 <input id="petDescription" placeHolder="petDescription">
-<input id="petImage" placeHolder="petImage" accept="image/*">
 <input id="petGender" placeHolder="petGender">
 <input id="petHealth" placeholder="Health">
 <button onclick="submitPet()">Submit</button>
-</div>
 </div>
      <script src="script.js"></script>
 </body>
